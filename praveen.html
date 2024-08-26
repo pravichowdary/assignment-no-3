@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Button Example</title>
+    <style>
+        .container {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        
+        #text {
+            font-size: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        #toggleButton {
+            padding: 10px 20px;
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        #toggleButton.active {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="container">
+        <span id="text">Initial Text</span>
+    </div>
+
+    <button id="toggleButton" onclick="toggleState()">Click Me</button>
+
+    <script>
+        let isActive = false;
+
+        function toggleState() {
+            const container = document.getElementById('container');
+            const text = document.getElementById('text');
+            const button = document.getElementById('toggleButton');
+
+            if (!isActive) {
+                container.style.backgroundColor = 'lightcoral';
+                text.textContent = 'Changed Text';
+                button.textContent = 'Go Back';
+                button.classList.add('active');
+            } else {
+                container.style.backgroundColor = 'lightblue';
+                text.textContent = 'Initial Text';
+                button.textContent = 'Click Me';
+                button.classList.remove('active');
+            }
+
+            isActive = !isActive;
+        }
+    </script>
+
+</body>
+</html>
